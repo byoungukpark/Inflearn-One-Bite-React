@@ -78,3 +78,44 @@ console.log(arr4.findIndex((item) => item.name === "두번째")) //이건 indexO
 console.log(arr4.find((item) => item.name === "두번째"));
 
 
+console.log("section3 ch9 - 배열 메서드 3")
+//5가지의 배열 변형 메소드
+
+let humanHobby = [
+    {name : "김철수", hobby: "테니스"},
+    {name : "김짱구", hobby: "테니스"},
+    {name : "김유리", hobby: "축구"}
+];
+
+let arr5 = [3,1,2];
+
+//1. filter 기존 배열에서 특정 조건을 만족하는 요소만 반환
+console.log(humanHobby.filter((item) => item.hobby === "테니스"))
+
+//2. map 배열의 모든 요소 순회, 각 콜백 함수 실행후 결과값 배열로 만들어 반환
+let names = humanHobby.map((item) => item.name);
+console.log(names);
+
+console.log(arr5.map((item) => {
+    return item * 2;
+}));
+
+//3. sort 배열을 사전순으로 정렬, 오름차순은 기본, 오름차순은 아래와 같이 - arr5
+let arr6 = ["b", "a", "c"];
+console.log(arr6.sort());
+
+console.log("오름차순" + arr5.sort());
+console.log("내림차순" + arr5.sort((a,b) => {
+    if(a > b) return -1;
+    else if(a < b) return 1;
+    else return 0;
+}));
+
+//toSorted 배열을 반환 원본은 안건듬
+const arrsorted = arr5.toSorted();
+console.log("정렬 전것" + arr5);
+console.log("정렬된것" + arrsorted);
+
+//join - 배열의 모든 요소를 합쳐줌
+const joined = arr6.join("-");
+console.log("join 은 배열내의 모든 요소를 합쳐서 문자열로 만들어줌" + joined);
